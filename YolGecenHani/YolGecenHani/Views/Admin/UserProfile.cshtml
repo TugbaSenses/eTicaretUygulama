@@ -1,0 +1,158 @@
+﻿@model YolGecenHani.Models.AdminModel.UserRoleBadgeModel
+    @{
+        ViewBag.Title = "UserProfile";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+        string UserImage = String.IsNullOrEmpty(Model.User.Image) ? "default-user.jpg" : Model.User.Image;
+    }
+
+    <div class="content-page">
+        <div class="content">
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="text-center card-body">
+                                <div class="dropdown float-end">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="~/Content/Admin/assets/images/users/@UserImage" class="rounded-circle avatar-xl img-thumbnail mb-2" alt="profile-image">
+
+                                    <p class="text-muted font-13 mb-3">
+                                        Hi I'm @Model.User.Name @Model.User.Surname
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+
+
+                                <div class="card">
+                                    <div class="text-center card-body">
+                                        <div>
+                                            <div class="text-start">
+                                                <h3>User Information </h3>
+                                                <table>
+                                                    <tr>
+                                                        <th>Register Date</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.RegisterDate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>User Name</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.UserName</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Email</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Password</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Password</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Phone</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Phone</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Name Surname</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Name @Model.User.Surname</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Birth Day</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.BirthDay.ToString().Substring(0, 10)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Gender</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Gender</td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+
+                                            <a href="~/Admin/UserEditInformation" class="btn btn-success rounded-pill waves-effect waves-light mt-4"><i class="fa fa-user"></i> Edit Information</a>
+                                            <a href="~/Admin/UserAddress" class="btn btn-success rounded-pill waves-effect waves-light mt-4"><i class="fa fa-map"></i> My Addresses</a>
+                                            <a href="~/Admin/EditPassword" class="btn btn-danger rounded-pill waves-effect waves-light mt-4"><i class="fa fa-key"></i> Edit Password</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+
+                                <div class="card">
+                                    <div class="text-center card-body">
+                                        <div>
+                                            <div class="text-start">
+                                                <h3>User Grade </h3>
+                                                <table>
+                                                    <tr>
+                                                        <th>User Role</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Role.Name &nbsp;&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>User Badge</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.Badge.Name <i class="fa fa-star" style="color:@Model.User.Badge.BadgeColor"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Badge Point</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td>@Model.User.BadgePoint</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Money</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td><b class="text-success">@Model.User.Money.ToString("C") </b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Money Point</th>
+                                                        <td> &nbsp;&nbsp;&nbsp;:&nbsp;&nbsp; </td>
+                                                        <td><b class="text-success">@Model.User.MoneyPoint.ToString("C") </b></td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                            <a href="~/Admin/UserGrade" class="btn btn-primary rounded-pill waves-effect waves-light mt-4"><i class="fas fa-star"></i> Edit Grade</a>
+                                            <button type="button" class="btn btn-success rounded-pill waves-effect waves-light mt-4"><i class="fas fa-money-bill"></i> Add Money (@{int zero = 0;} @zero.ToString("c").Substring(0, 1) )</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+                <!-- end row -->
+
+            </div> <!-- container -->
+        </div> <!-- content -->
+        <!-- Footer Start -->
+        <!-- end Footer -->
+    </div>
+
+

@@ -1,0 +1,87 @@
+﻿@model List<YolGecenHani.Models.City>
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Add New Address</h4>
+
+                                    <a href="~/Admin/UserAddress" class="btn btn-success waves-effect waves-light" style="float:right!important"><i class="fa fa-chevron-left"></i> Back To List</a>
+                                </div>
+                            </div>
+
+                            <form method="post" enctype="multipart/form-data">
+                                <div id="basicwizard">
+                                    <div class="tab-content b-0 mb-0 pt-0">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Title"> Address Title</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" id="Title" name="Title" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="CityId"> City</label>
+                                                        <div class="col-md-9">
+                                                            <select class="form-control" name="CityId" id="CityId">
+                                                                @foreach (var city in Model)
+	                                                            {
+		                                                            <option value="@city.Id">@city.Name</option>
+	                                                            }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="OpenAddress"> Open Address</label>
+                                                        <div class="col-md-9">
+                                                            <textarea class="form-control" name="OpenAddress" id="OpenAddress" rows="3" maxlength="500"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Direction"> Address Direction</label>
+                                                        <div class="col-md-9">
+                                                            <textarea class="form-control" name="Direction" id="Direction" rows="3" maxlength="500"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Status"> Status </label>
+                                                        <div class="col-md-9">
+                                                            <input data-val="true" id="Status" name="Status" type="checkbox" value="true">
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-warning">@ViewBag.Mesaj</p>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+                                        <ul class="list-inline wizard mb-0">
+                                            <li class="previous list-inline-item">
+                                                <button type="submit" class="btn btn-success">Create New Address</button>
+                                            </li>
+                                        </ul>
+                                    </div> <!-- tab-content -->
+                                </div> <!-- end #basicwizard-->
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+

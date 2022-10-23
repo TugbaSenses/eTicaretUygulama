@@ -1,0 +1,86 @@
+﻿@model YolGecenHani.Models.HomeModel.Cart
+
+<div class="col-lg-6" style="border-right:2px solid #e0d8d8;padding-right:20px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h4>Your Orders</h4>
+            <div class="table-responsive">
+                <table class="table cart">
+                    <thead>
+                        <tr>
+                            <th class="cart-product-thumbnail">&nbsp;</th>
+                            <th class="cart-product-name">Product</th>
+                            <th class="cart-product-quantity">Price</th>
+                            <th class="cart-product-quantity">Quantity</th>
+                            <th class="cart-product-subtotal">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model.CartLines)
+                        {
+                            <tr class="cart_item">
+                                <td class="cart-product-thumbnail">
+                                    <a href="#"><img width="64" height="64" src="~/Content/Admin/assets/images/product/@product.Product.Image" alt="Pink Printed Dress"></a>
+                                </td>
+                                <td class="cart-product-name">
+                                    <a href="#">@product.Product.Name</a>
+                                </td>
+                                <td class="cart-product-quantity">
+                                    <div class="quantity clearfix">
+                                        @product.Product.Price.ToString("c")
+                                    </div>
+                                </td>
+
+                                <td class="cart-product-quantity">
+                                    <div class="quantity clearfix">
+                                        @product.Quantity
+                                    </div>
+                                </td>
+                                <td class="cart-product-subtotal">
+                                    <span class="amount">@((product.Quantity * product.Product.Price).ToString("c"))</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-lg-12">
+            <h4>Cart Totals</h4>
+            <div class="table-responsive">
+                <table class="table cart">
+                    <tbody>
+                        <tr class="cart_item">
+                            <td class="border-top-0 cart-product-name">
+                                <strong>Cart Subtotal</strong>
+                            </td>
+                            <td class="border-top-0 cart-product-name">
+                                <span class="amount">@Model.TotalPrice().ToString("c")</span>
+                            </td>
+                        </tr>
+                        <tr class="cart_item">
+                            <td class="cart-product-name">
+                                <strong>Shipping</strong>
+                            </td>
+                            <td class="cart-product-name">
+                                <span class="amount">Free Delivery</span>
+                            </td>
+                        </tr>
+                        <tr class="cart_item">
+                            <td class="cart-product-name">
+                                <strong>Total</strong>
+                            </td>
+                            <td class="cart-product-name">
+                                <span class="amount color lead"><strong>@Model.TotalPrice().ToString("c")</strong></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

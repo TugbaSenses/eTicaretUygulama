@@ -1,0 +1,49 @@
+﻿@model YolGecenHani.Models.HomeModel.Cart
+<div id="top-cart" class="header-misc-icon d-none d-sm-block">
+    <a href="#" id="top-cart-trigger"><i class="icon-line-bag"></i><span class="top-cart-number">@Model.CartLines.Count</span></a>
+    <div class="top-cart-content">
+        <div class="top-cart-title">
+            <h4>Shopping Cart</h4>
+        </div>
+        <div class="top-cart-items">
+            @foreach (var cart in Model.CartLines)
+            {
+                <div class="top-cart-item">
+                    <div class="top-cart-item-image">
+                        <a href="#"><img src="~/Content/Admin/assets/images/product/@cart.Product.Image" alt="@cart.Product.Name" /></a>
+                    </div>
+                    <div class="top-cart-item-desc">
+                        <div class="top-cart-item-desc-title">
+                            <a href="#">@cart.Product.Name</a>
+                            <span class="top-cart-item-price d-block">@cart.Product.Price.ToString("c")</span>
+                        </div>
+                        <div class="top-cart-item-quantity">
+                            <label class="float-end">x @cart.Quantity</label>
+                            <form method="post" action="~/Cart/RemoveFromCart">
+                                <input type="hidden" id="id" name="id" value="@cart.Product.Id" />
+                                <button type="submit" class="btn btn-sm"><i class="icon-trash text-warning"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="top-cart-action">
+            <div class="row">
+                <div class="col-12">
+                    <span class="top-checkout-price">@Model.TotalPrice().ToString("c")</span>
+                </div>
+                <div class="col-12">
+                    <a href="~/Cart/ViewCart" class="button button-3d button-small m-0">View Cart</a>
+                    @if (Model.CartLines.Count > 0)
+                    {
+                        <a href="~/Cart/ClearCart" class="button button-3d button-small m-0" style="background-color:red">
+                           Clear Cart
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+﻿@model List<YolGecenHani.Models.Discount>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayi = 0;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Discount List</h4>
+
+                                    <a href="~/Admin/Discount/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                        <i class="fa fa-plus"></i> Add New Discount
+                                    </a>
+                                </div>
+                            </div>
+
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Discount Price</th>
+                                        <th>Discount Rate</th>
+                                        <th>Status</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var discount in Model)
+                                    {
+                                        sayi++;
+                                        <tr>
+                                            <td>@sayi</td>
+                                            <td>@discount.DiscountPrice</td>
+                                            <td>@discount.DiscountRate</td>
+
+                                            <td>
+                                                @{var discountStatus = discount.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };}
+                                                <a class="btn @discountStatus[0] btn-sm">@discountStatus[1]</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/Admin/Discount/Edit/@discount.Id" class="btn btn-primary btn-sm">Detail</a>
+                                                <a href="~/Admin/Discount/Delete/@discount.Id" class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div> <!-- content -->
+
+</div>
+

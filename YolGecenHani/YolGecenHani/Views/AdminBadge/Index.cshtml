@@ -1,0 +1,72 @@
+﻿@model List<YolGecenHani.Models.Badge>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayi = 0;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Badge List</h4>
+
+                                    <a href="~/Admin/Badge/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                        <i class="fa fa-plus"></i> Add New Badge
+                                    </a>
+                                </div>
+                            </div>
+
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Badge</th>
+                                        <th>Status</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var badge in Model)
+                                    {
+                                        sayi++;
+                                        <tr>
+                                            <td>@sayi</td>
+                                            <td>@badge.Name</td>
+
+                                            <td>
+                                                @{var badgeStatus = badge.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };}
+                                                <a class="btn @badgeStatus[0] btn-sm">@badgeStatus[1]</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/Admin/Badge/Edit/@badge.Id" class="btn btn-primary btn-sm">Detail</a>
+                                                <a href="~/Admin/Badge/Delete/@badge.Id" class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div> <!-- content -->
+
+</div>
+

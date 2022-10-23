@@ -1,0 +1,267 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="slider" class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100 include-header">
+    <div class="slider-inner">
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp">Welcome to Canvas</h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on your own Canvas.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('/Content/Site/images/slider/swiper/1.jpg');"></div>
+                </div>
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp">Beautifully Flexible</h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                        </div>
+                    </div>
+                    <div class="video-wrap">
+                        <video id="slide-video" poster="~/Content/Site/images/videos/deskwork.jpg" preload="auto" loop autoplay muted>
+                            <source src='~/Content/Site/images/videos/deskwork.webm' type='video/webm' />
+                            <source src='~/Content/Site/images/videos/deskwork.mp4' type='video/mp4' />
+                        </video>
+                        <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="slider-caption">
+                            <h2 data-animate="fadeInUp">Great Performance</h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide-bg" style="background-image: url('/Content/Site/images/slider/swiper/3.jpg'); background-position: center top;"></div>
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+        </div>
+        <a href="#" data-scrollto="#content" data-offset="100" class="one-page-arrow dark"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
+    </div>
+</section>
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="row align-items-stretch gutter-20 min-vh-60">
+                <div class="col-md-8">
+                    <div class="row align-items-stretch gutter-20 h-100">
+                        <div class="col-md-6 min-vh-25 min-vh-md-0">
+                            <a href="#" class="grid-inner d-block h-100" style="background-image: url('/Content/Site/images/shop/banners/2.jpg');"></a>
+                        </div>
+                        <div class="col-md-6 min-vh-25 min-vh-md-0">
+                            <a href="#" class="grid-inner d-block h-100" style="background-image: url('/Content/Site/images/shop/banners/8.jpg'); background-position: right center;"></a>
+                        </div>
+                        <div class="col-md-12 min-vh-25 min-vh-md-0 pb-md-0">
+                            <a href="#" class="grid-inner d-block h-100" style="background-image: url('/Content/Site/images/shop/banners/4.jpg');"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 min-vh-50">
+                    <a href="#" class="grid-inner d-block h-100" style="background-image: url('/Content/Site/images/shop/banners/9.jpg'); background-position: center top;"></a>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="tabs topmargin-lg clearfix" id="tab-3">
+                <ul class="tab-nav clearfix">
+                    <li><a href="#tabs-9">New Arrivals</a></li>
+                   
+                </ul>
+                <div class="tab-container">
+                    <div class="tab-content" id="tabs-9">
+                        @Html.Action("HomeProduct","Home")
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="clear bottommargin-sm"></div>
+            <div class="row justify-content-center col-mb-50 mb-0">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="fancy-title title-border">
+                        <h4>About Us</h4>
+                    </div>
+                    <p>Jane Jacobs educate, leverage affiliate Martin Luther King Jr. agriculture conflict resolution dignity. Cooperation international progress non-partisan lasting change meaningful.</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 subscribe-widget">
+                    <div class="fancy-title title-border">
+                        <h4>Subscribe for Offers</h4>
+                    </div>
+                    <p>Subscribe to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</p>
+                    <div class="widget-subscribe-form-result"></div>
+                    <form id="widget-subscribe-form2" action="https://themes.semicolonweb.com/html/canvas/include/subscribe.php" method="post" class="mb-0">
+                        <div class="input-group mx-auto">
+                            <div class="input-group-text"><i class="icon-email2"></i></div>
+                            <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                            <button class="btn btn-secondary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="fancy-title title-border">
+                        <h4>Connect with Us</h4>
+                    </div>
+                    <a href="#" class="social-icon si-facebook" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon si-delicious" data-bs-toggle="tooltip" data-bs-placement="top" title="Delicious">
+                        <i class="icon-delicious"></i>
+                        <i class="icon-delicious"></i>
+                    </a>
+                    <a href="#" class="social-icon si-paypal" data-bs-toggle="tooltip" data-bs-placement="top" title="PayPal">
+                        <i class="icon-paypal"></i>
+                        <i class="icon-paypal"></i>
+                    </a>
+                    <a href="#" class="social-icon si-flattr" data-bs-toggle="tooltip" data-bs-placement="top" title="Flattr">
+                        <i class="icon-flattr"></i>
+                        <i class="icon-flattr"></i>
+                    </a>
+                    <a href="#" class="social-icon si-android" data-bs-toggle="tooltip" data-bs-placement="top" title="Android">
+                        <i class="icon-android"></i>
+                        <i class="icon-android"></i>
+                    </a>
+                    <a href="#" class="social-icon si-smashmag" data-bs-toggle="tooltip" data-bs-placement="top" title="Smashing Magazine">
+                        <i class="icon-smashmag"></i>
+                        <i class="icon-smashmag"></i>
+                    </a>
+                    <a href="#" class="social-icon si-gplus" data-bs-toggle="tooltip" data-bs-placement="top" title="Google+">
+                        <i class="icon-gplus"></i>
+                        <i class="icon-gplus"></i>
+                    </a>
+                    <a href="#" class="social-icon si-wikipedia" data-bs-toggle="tooltip" data-bs-placement="top" title="Wikipedia">
+                        <i class="icon-wikipedia"></i>
+                        <i class="icon-wikipedia"></i>
+                    </a>
+                    <a href="#" class="social-icon si-stumbleupon" data-bs-toggle="tooltip" data-bs-placement="top" title="StumbleUpon">
+                        <i class="icon-stumbleupon"></i>
+                        <i class="icon-stumbleupon"></i>
+                    </a>
+                    <a href="#" class="social-icon si-foursquare" data-bs-toggle="tooltip" data-bs-placement="top" title="FourSquare">
+                        <i class="icon-foursquare"></i>
+                        <i class="icon-foursquare"></i>
+                    </a>
+                    <a href="#" class="social-icon si-call" data-bs-toggle="tooltip" data-bs-placement="top" title="Call">
+                        <i class="icon-call"></i>
+                        <i class="icon-call"></i>
+                    </a>
+                    <a href="#" class="social-icon si-ninetyninedesigns" data-bs-toggle="tooltip" data-bs-placement="top" title="Ninety Nine Design">
+                        <i class="icon-ninetyninedesigns"></i>
+                        <i class="icon-ninetyninedesigns"></i>
+                    </a>
+                    <a href="#" class="social-icon si-forrst" data-bs-toggle="tooltip" data-bs-placement="top" title="Forrst">
+                        <i class="icon-forrst"></i>
+                        <i class="icon-forrst"></i>
+                    </a>
+                    <a href="#" class="social-icon si-digg" data-bs-toggle="tooltip" data-bs-placement="top" title="Digg">
+                        <i class="icon-digg"></i>
+                        <i class="icon-digg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="fancy-title title-border title-center topmargin-sm">
+                <h4>Popular Brands</h4>
+            </div>
+            <ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0">
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/1.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/2.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/3.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/4.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/5.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/6.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/7.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/8.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/9.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/10.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/11.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/12.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/13.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/14.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/15.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/16.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/19.png" alt="Clients"></a></li>
+                <li class="grid-item"><a href="#"><img src="~/Content/Site/images/clients/logo/18.png" alt="Clients"></a></li>
+            </ul>
+        </div>
+        <div class="section mb-0">
+            <div class="container">
+                <div class="row col-mb-50">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="feature-box fbox-plain fbox-dark fbox-sm">
+                            <div class="fbox-icon">
+                                <i class="icon-thumbs-up2"></i>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>100% Original</h3>
+                                <p class="mt-0">We guarantee you the sale of Original Brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="feature-box fbox-plain fbox-dark fbox-sm">
+                            <div class="fbox-icon">
+                                <i class="icon-credit-cards"></i>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>Payment Options</h3>
+                                <p class="mt-0">We accept Visa, MasterCard and American Express.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="feature-box fbox-plain fbox-dark fbox-sm">
+                            <div class="fbox-icon">
+                                <i class="icon-truck2"></i>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>Free Shipping</h3>
+                                <p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="feature-box fbox-plain fbox-dark fbox-sm">
+                            <div class="fbox-icon">
+                                <i class="icon-undo"></i>
+                            </div>
+                            <div class="fbox-content">
+                                <h3>30-Days Returns</h3>
+                                <p class="mt-0">Return or exchange items purchased within 30 days.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section border-top-0 border-bottom-0 mb-0 p-0 bg-transparent footer-stick">
+            <div class="container clearfix">
+                <div class="row col-mb-50">
+                    <div class="col-md-6 d-none d-md-flex align-self-end">
+                        <img src="~/Content/Site/images/services/4.jpg" alt="Image" class="mb-0">
+                    </div>
+                    <div class="col-md-6 mb-5 subscribe-widget">
+                        <div class="heading-block">
+                            <h3><strong>GET 20% OFF*</strong></h3>
+                            <span>Our App scales beautifully to different Devices.</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet cumque, perferendis accusamus porro illo exercitationem molestias.</p>
+                        <div class="widget-subscribe-form-result"></div>
+                        <form id="widget-subscribe-form3" action="https://themes.semicolonweb.com/html/canvas/include/subscribe.php" method="post" class="mb-0">
+                            <div class="input-group" style="max-width:400px;">
+                                <div class="input-group-text"><i class="icon-email2"></i></div>
+                                <input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+                                <button class="btn btn-danger" type="submit">Subscribe Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

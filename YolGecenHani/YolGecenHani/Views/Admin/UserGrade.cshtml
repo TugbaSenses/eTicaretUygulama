@@ -1,0 +1,88 @@
+﻿@model YolGecenHani.Models.AdminModel.UserRoleBadgeModel
+@{
+    ViewBag.Title = "UserEditInformation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string UserImage = String.IsNullOrEmpty(Model.User.Image) ? "default-user.jpg" : Model.User.Image;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Edit Grade</h4>
+
+                                    <a href="~/Admin/UserProfile" class="btn btn-success waves-effect waves-light" style="float:right!important"><i class="fa fa-chevron-left"></i> Back To Profile</a>
+                                </div>
+                            </div>
+
+                            <img src="~/Content/Admin/assets/images/users/@UserImage" class="rounded-circle img-thumbnail mb-3" width="200" />
+                            <form method="post" enctype="multipart/form-data">
+                                <div id="basicwizard">
+                                    <div class="tab-content b-0 mb-0 pt-0">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="userName">Username</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="userName" value="@Model.User.UserName" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Email">Email</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="Email" value="@Model.User.Email" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="RoleId">Role</label>
+                                                        <div class="col-md-9">
+                                                            <select name="RoleId" id="RoleId" class="form-control">
+                                                                <optgroup>
+                                                                    <option value="@Model.User.RoleId">@Model.User.Role.Name</option>
+                                                                </optgroup>
+                                                                @foreach (var role in Model.Role)
+	                                                            {
+		                                                                <option value="@role.Id">@role.Name</option>
+	                                                            }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="MoneyPoint">Money Point</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" step="0.01" id="MoneyPoint" name="MoneyPoint" max="1000.00" value="0.00" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <p class="text-warning">@ViewBag.Mesaj</p>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+                                        <ul class="list-inline wizard mb-0">
+                                            <li class="previous list-inline-item">
+                                                <button type="submit" class="btn btn-success">Save Grade</button>
+                                            </li>
+                                        </ul>
+                                    </div> <!-- tab-content -->
+                                </div> <!-- end #basicwizard-->
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+
+<!-- Plugins js-->

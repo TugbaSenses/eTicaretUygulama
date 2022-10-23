@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="page-title">
+    <div class="container clearfix">
+        <h1>Checkout</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Shop</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+        </ol>
+    </div>
+</section>
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="row col-mb-50 gutter-50 justify-content-center">
+                    <div class="col-lg-4">
+                        <h3>User Login</h3>
+                        <p>Devam Edebilmek için Lütfen Giriş Yapınız.</p>
+                        <form method="post" class="row mb-0" action="~/Admin/Login">
+                            <div class="col-md-12 form-group">
+                                <label for="shipping-form-name">UserName:</label>
+                                <input type="text" id="shipping-form-name" name="UserName" value="" class="sm-form-control" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="shipping-form-lname">Password:</label>
+                                <input type="password" id="shipping-form-lname" name="Password" value="" class="sm-form-control" />
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label for="shipping-form-lname">Remember: </label>
+                                <input type="checkbox" name="Remember" value="true" data-val="true" class="" />
+                                <input type="hidden" value="1" name="checkout" />
+                            </div>
+                            <button class="button button-3d">Login </button>
+                        </form>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row col-mb-50 gutter-50">
+
+                    @Html.Action("CheckoutPartial", "Cart")
+
+                    @Html.Action("CheckoutShippingForm", "Cart")
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

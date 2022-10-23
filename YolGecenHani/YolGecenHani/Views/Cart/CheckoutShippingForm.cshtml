@@ -1,0 +1,53 @@
+﻿@model YolGecenHani.Models.HomeModel.ShippingAddressModel
+
+<div class="col-lg-6">
+    <h3>Shipping Address</h3>
+    <form name="shipping-form" class="row mb-0" action="~/Cart/CheckoutShippingForm" method="post" enctype="multipart/form-data">
+        <div class="col-md-6 form-group">
+            <label for="shipping-form-name">Name:</label>
+            <input type="text" id="shipping-form-name" name="Name" value="@Model.User.Name" class="sm-form-control" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="shipping-form-lname">Last Name:</label>
+            <input type="text" id="shipping-form-lname" name="Surname" value="@Model.User.Surname" class="sm-form-control" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="billing-form-email">Email Address:</label>
+            <input type="email" id="billing-form-email" name="Email" value="@Model.User.Email" class="sm-form-control" />
+        </div>
+        <div class="col-md-6 form-group">
+            <label for="billing-form-phone">Phone:</label>
+            <input type="text" id="billing-form-phone" name="Phone" value="@Model.User.Phone" class="sm-form-control" />
+        </div>
+        <div class="w-100"></div>
+        <div class="col-12 form-group">
+            <label for="shipping-form-companyname">Address Title:</label>
+            <input type="text" id="shipping-form-companyname" name="AddressTitle" value="@Model.UserAddress.Title" class="sm-form-control" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="shipping-form-address">Address:</label>
+            <input type="text" id="shipping-form-address" name="Address" value="@Model.UserAddress.OpenAddress" class="sm-form-control" />
+        </div>
+        <div class="col-12 form-group">
+            <label for="shipping-form-city">City / Town</label>
+            <select id="shipping-form-city" name="City" class="sm-form-control">
+                <option>@Model.UserAddress.City.Name</option>
+                <optgroup>
+                    @foreach (var city in Model.City)
+                    {
+                        <option>@city.Name</option>
+                    }
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="col-12 form-group">
+            <label for="shipping-form-message">Notes <small>*</small></label>
+            <textarea class="sm-form-control" id="shipping-form-message" name="Notes" rows="6" cols="30"></textarea>
+        </div>
+        <div class="col-12 form-group">
+            <button type="submit" class="button button-3d float-end">Place Order</button>
+        </div>
+    </form>
+</div>
+

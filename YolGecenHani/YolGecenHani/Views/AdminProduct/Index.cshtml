@@ -1,0 +1,78 @@
+﻿@model YolGecenHani.Models.AdminModel.RestaurantProductModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayi = 0;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Product List</h4>
+
+                                    <a href="~/Admin/Product/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                        <i class="fa fa-plus"></i> Add New Product
+                                    </a>
+                                </div>
+                            </div>
+
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Image</th>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var product in Model.ProductList)
+                                    {
+                                        sayi++;
+                                        <tr>
+                                            <td>@sayi</td>
+                                            <td><img src="~/Content/Admin/assets/images/product/@product.Image" height="50px" /></td>
+                                            <td>@product.Name</td>
+                                            <td>@product.Category.Name</td>
+                                            <td>@product.Price</td>
+
+                                            <td>
+                                                @{var productStatus = product.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };}
+                                                <a class="btn @productStatus[0] btn-sm">@productStatus[1]</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/Admin/Product/Edit/@product.Id" class="btn btn-primary btn-sm">Detail</a>
+                                                <a href="~/Admin/Product/Delete/@product.Id" class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div> <!-- content -->
+
+</div>
+

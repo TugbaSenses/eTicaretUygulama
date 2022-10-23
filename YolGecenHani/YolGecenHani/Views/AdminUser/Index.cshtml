@@ -1,0 +1,76 @@
+﻿@model YolGecenHani.Models.AdminModel.UserRoleBadgeModel
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+        int sayi = 0;
+    }
+
+    <div class="content-page">
+        <div class="content">
+            <!-- Start Content-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                                                
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <h4 class="header-title" style="float:left"> User List</h4>
+
+                                        <a href="~/Admin/User/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                            <i class="fa fa-plus"></i> Add New User
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>UserName</th>
+                                            <th>Email</th>
+                                            <th>Name Surname</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Settings</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        @foreach (var user in Model.UserList)
+                                        {
+                                            sayi++;
+                                            <tr>
+                                                <td>@sayi</td>
+                                                <td>@user.UserName</td>
+                                                <td>@user.Email</td>
+                                                <td>@user.Name @user.Surname</td>
+                                                <td>@user.Role.Name</td>
+                                                <td>
+                                                    @{var userStatus = user.Status == true ? new[]{ "btn-success","Active"} : new[]{ "btn-warning","Passive"};}
+                                                        <a class="btn @userStatus[0] btn-sm">@userStatus[1]</a>
+                                                </td>
+                                                <td>
+                                                    <a href="~/Admin/User/Edit/@user.Id" class="btn btn-primary btn-sm">Detail</a>
+                                                    <a href="~/Admin/User/Delete/@user.Id" class="btn btn-danger btn-sm">Delete</a>
+                                                </td>
+                                                
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- end row -->
+
+
+            </div> <!-- container-fluid -->
+        </div> <!-- content -->
+       
+    </div>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<!-- Mirrored from themes.semicolonweb.com/html/canvas/block-misc-cursor.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Aug 2022 10:10:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="SemiColonWeb" />
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;family=Noto+Serif:ital,wght@1,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/swiper.css" type="text/css" />
+<link rel="stylesheet" href="css/dark.css" type="text/css" />
+<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/animate.css" type="text/css" />
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Custom Cursor | Canvas</title>
+<style>
+		@media (min-width: 992px) {
+
+			body.block-misc-cursor,
+			html.block-misc-cursor,
+			.block-misc-cursor a { cursor: none; }
+
+			.block-misc-cursor {
+				--cursor-bg: #111;
+			}
+
+			/* Cursor Styling */
+			.block-misc-cursor .cursor {
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				border-radius: 100%;
+				z-index: 1;
+				transition: transform .5s ease, opacity .2s ease;
+				user-select: none;
+				pointer-events: none;
+				transform: scale(0.8);
+				background-color: var(--cursor-bg);
+			}
+
+			.block-misc-cursor .cursor::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+				background-image: url('images/blocks/preview/cursor.svg');
+				background-position: center center;
+				background-size: cover;
+				background-repeat: no-repeat;
+				border-radius: 100%;
+				opacity: 0;
+			}
+
+			.block-misc-cursor .cursor.active {
+				opacity: 1;
+				transform: scale(12);
+			}
+
+			.block-misc-cursor .cursor.active::before {
+				opacity: 1;
+			}
+
+			.block-misc-cursor .cursor-follower {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				background-color: var(--cursor-bg);
+				opacity: .2;
+				border-radius: 100%;
+				z-index: 1;
+				transition: transform .6s ease, opacity .4s ease;
+				user-select: none;
+				pointer-events: none;
+				transform: translate(14px, 14px);
+			}
+
+			.block-misc-cursor .cursor-follower.active {
+				opacity: 0.3;
+				transform: scale(0);
+
+			}
+
+			.block-misc-cursor .dark .cursor,
+			.block-misc-cursor .dark .cursor-follower { --cursor-bg: #FFF; }
+
+		}
+	</style>
+</head>
+<body class="stretched block-misc-cursor">
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<div id="wrapper" class="clearfix">
+
+<section id="content">
+<div class="content-wrap">
+<div class="container mw-sm">
+<h3 class="text-center">Custom Cursor</h3>
+<a href="#" class="cursor-hover">
+<div class="card bg-dark text-white overflow-hidden h-translate-y h-shadow all-ts">
+<img src="demos/music/images/slider/1.jpg" class="" alt="...">
+<div class="card-img-overlay dark d-flex flex-column justify-content-end p-5">
+<h3 class="card-title">Card title</h3>
+<p class="card-text text-white-50">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+</div>
+
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<script src="js/jquery.js"></script>
+<script src="js/plugins.min.js"></script>
+
+<script src="js/functions.js"></script>
+<script src="../../../cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script>
+
+		var cursor = $(".cursor"),
+			follower = $(".cursor-follower"),
+
+			posX = 0,
+			posY = 0,
+			mouseX = 0,
+			mouseY = 0;
+
+			TweenMax.to({}, 0.016, {
+				repeat: -1,
+				onRepeat: function(){
+					posX += (mouseX - posX) / 9;
+					posY += (mouseY - posY) / 9;
+
+					TweenMax.set(follower, {
+						css: {
+							left: posX - 20,
+							top: posY - 20
+						}
+					});
+					TweenMax.set(cursor, {
+						css: {
+							left: mouseX,
+							top: mouseY
+						}
+					});
+				}
+			});
+
+			$(document).on("mousemove", function(e) {
+				mouseX = e.pageX;
+				mouseY = e.pageY;
+			});
+
+			$(".cursor-hover").on("mouseenter", function() {
+				cursor.addClass('active');
+				follower.addClass('active');
+			});
+
+			$(".cursor-hover").on("mouseleave", function() {
+				cursor.removeClass('active');
+				follower.removeClass('active');
+			});
+
+	</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"73d2028a9cdfe1a3","token":"0627f0b8b73941069bc19139e63db853","version":"2022.8.0","si":100}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from themes.semicolonweb.com/html/canvas/block-misc-cursor.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Aug 2022 10:10:03 GMT -->
+</html>

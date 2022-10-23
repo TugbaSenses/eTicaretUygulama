@@ -1,0 +1,78 @@
+﻿@model YolGecenHani.Models.AdminModel.UserAddressCityModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayi = 0;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> My Address List</h4>
+
+                                    <a href="~/Admin/UserAddress/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                        <i class="fa fa-plus"></i> Add New Address
+                                    </a>
+                                </div>
+                            </div>
+
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Title</th>
+                                        <th>City</th>
+                                        <th>Selection</th>
+                                        <th>Status</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var address in Model.UserAddressList)
+                                    {
+                                        sayi++;
+                                    <tr>
+                                        <td>@sayi</td>
+                                        <td>@address.Title</td>
+                                        <td>@address.City.Name</td>
+                                        <td>
+                                            @{var selectionStatus = address.Selected == true ? new[] { "btn-primary", "Selected" } : new[] { "btn-dark", "Passive" };}
+                                            <a href="~/Admin/UserAddress/Selected/@address.Id" class="btn @selectionStatus[0] btn-sm">@selectionStatus[1]</a>
+                                        </td>
+                                        <td>
+                                            @{var addressStatus = address.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };}
+                                            <a class="btn @addressStatus[0] btn-sm">@addressStatus[1]</a>
+                                        </td>
+                                        <td>
+                                            <a href="~/Admin/UserAddress/Edit/@address.Id" class="btn btn-primary btn-sm">Detail</a>
+                                            <a href="~/Admin/UserAddress/Delete/@address.Id" class="btn btn-danger btn-sm">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div> <!-- content -->
+
+</div>
+

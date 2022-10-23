@@ -1,0 +1,32 @@
+﻿@model YolGecenHani.Models.HomeModel.HomeProductModel
+<div class="shop row gutter-30">
+    @foreach (var product in Model.Product.Take(8))
+    {
+        <div class="product col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="grid-inner">
+                <div class="product-image">
+                    <a href="#"><img src="~/Content/Admin/assets/images/product/@product.Image" alt="Checked Short Dress"></a>
+                    <a href="#"><img src="~/Content/Admin/assets/images/product/@product.Image" alt="Checked Short Dress"></a>
+                    <div class="sale-flash badge bg-success p-2">@product.Discount.DiscountRate % Off*</div>
+                    <div class="bg-overlay">
+                        <div class="bg-overlay-content align-items-end justify-content-between" data-hover-animate="fadeIn" data-hover-speed="400">
+                            <form method="post" action="~/Cart/AddToCart">
+                                <input type="hidden" name="id" id="id" value="@product.Id" />
+                                <button type="submit" class="btn btn-dark me-2"><i class="icon-shopping-basket"></i></button>
+
+                            </form>
+                            <a href="include/ajax/shop-item.html" class="btn btn-dark"><i class="icon-eye"></i></a>
+                        </div>
+                        <div class="bg-overlay-bg bg-transparent"></div>
+                    </div>
+                </div>
+                <div class="product-desc">
+                    <div class="product-title"><h3><a href="#">@product.Name</a></h3></div>
+                    <div class="product-price"><del>@product.Price.ToString("c")</del> <ins>@((product.Price-((product.Price*product.Discount.DiscountRate)/100)).ToString("c"))</ins></div>
+                    
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<!-- Mirrored from themes.semicolonweb.com/html/canvas/block-misc-rotating-text.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Aug 2022 10:09:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="SemiColonWeb" />
+
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&amp;display=swap" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/dark.css" type="text/css" />
+<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/animate.css" type="text/css" />
+<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+<link rel="stylesheet" href="css/custom.css" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Rotating Text | Canvas</title>
+<style>
+
+		.center-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		@-webkit-keyframes rotating /* Safari and Chrome */ {
+		  from {
+		    -webkit-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  to {
+		    -webkit-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		@keyframes rotating {
+		  from {
+		    -ms-transform: rotate(0deg);
+		    -moz-transform: rotate(0deg);
+		    -webkit-transform: rotate(0deg);
+		    -o-transform: rotate(0deg);
+		    transform: rotate(0deg);
+		  }
+		  to {
+		    -ms-transform: rotate(360deg);
+		    -moz-transform: rotate(360deg);
+		    -webkit-transform: rotate(360deg);
+		    -o-transform: rotate(360deg);
+		    transform: rotate(360deg);
+		  }
+		}
+		.rotating {
+		  -webkit-animation: rotating 20s linear infinite;
+		  -moz-animation: rotating 20s linear infinite;
+		  -ms-animation: rotating 20s linear infinite;
+		  -o-animation: rotating 20s linear infinite;
+		  animation: rotating 20s linear infinite;
+		}
+	</style>
+</head>
+<body class="stretched">
+
+<div id="wrapper" class="clearfix">
+
+<section id="content">
+<div class="content-wrap">
+<div class="container center clearfix">
+<h3>Rotating Circular Text</h3>
+<div class="circular-text position-relative">
+<h4 id="rotated-text" class="m-0 rotating infinite">
+Call: +00 11 222 333 | Email: <a href="https://themes.semicolonweb.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6b8b9fba4b3a6baaf96b5b7b8a0b7a5f8b5b9bb">[email&#160;protected]</a>
+</h4>
+<a class="center-text fw-bold h2 text-dark" href="#">24x7</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div id="gotoTop" class="icon-angle-up"></div>
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/jquery.js"></script>
+<script src="js/plugins.min.js"></script>
+<script src="../../../cdn.jsdelivr.net/npm/circletype%402.3.0/dist/circletype.min.js"></script>
+
+<script src="js/functions.js"></script>
+<script>
+		const circleType = new CircleType(
+			document.getElementById("rotated-text")
+			).radius(80);
+	</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"73d20271bc1650ee","token":"0627f0b8b73941069bc19139e63db853","version":"2022.8.0","si":100}' crossorigin="anonymous"></script>
+</body>
+
+<!-- Mirrored from themes.semicolonweb.com/html/canvas/block-misc-rotating-text.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 19 Aug 2022 10:09:45 GMT -->
+</html>

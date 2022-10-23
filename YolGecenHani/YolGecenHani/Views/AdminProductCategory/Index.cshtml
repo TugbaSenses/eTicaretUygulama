@@ -1,0 +1,72 @@
+﻿@model List<YolGecenHani.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayi = 0;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> Category List</h4>
+
+                                    <a href="~/Admin/ProductCategory/Create" class="btn btn-success waves-effect waves-light" style="float:right!important">
+                                        <i class="fa fa-plus"></i> Add New Category
+                                    </a>
+                                </div>
+                            </div>
+
+                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Category Name</th>
+                                        <th>Status</th>
+                                        <th>Settings</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach (var role in Model)
+                                    {
+                                        sayi++;
+                                        <tr>
+                                            <td>@sayi</td>
+                                            <td>@role.Name</td>
+
+                                            <td>
+                                                @{var roleStatus = role.Status == true ? new[] { "btn-success", "Active" } : new[] { "btn-warning", "Passive" };}
+                                                <a class="btn @roleStatus[0] btn-sm">@roleStatus[1]</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/Admin/Role/Edit/@role.Id" class="btn btn-primary btn-sm">Detail</a>
+                                                <a href="~/Admin/Role/Delete/@role.Id" class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end row -->
+
+
+        </div> <!-- container-fluid -->
+    </div> <!-- content -->
+
+</div>
+

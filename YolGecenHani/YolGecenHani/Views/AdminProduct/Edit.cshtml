@@ -1,0 +1,117 @@
+﻿@model YolGecenHani.Models.AdminModel.RestaurantProductModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string productImage = String.IsNullOrEmpty(Model.Product.Image) ? "9.jpg" : Model.Product.Image;
+}
+
+<script src="~/Content/Admin/assets/js/deneme.js"></script>
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> @Model.Product.Name - Edit Product</h4>
+
+                                    <a href="~/Admin/Product" class="btn btn-success waves-effect waves-light" style="float:right!important"><i class="fa fa-chevron-left"></i> Back To List</a>
+                                </div>
+                            </div>
+                            <img src="~/Content/Admin/assets/images/product/@productImage" width="500px" class="mb-3"/>
+                            <form method="post" enctype="multipart/form-data">
+                                <div id="basicwizard">
+                                    <div class="tab-content b-0 mb-0 pt-0">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Image">Product Image</label>
+                                                        <div class="col-md-9">
+                                                            <input type="file" class="form-control" id="Image" name="Image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Name">Name</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Product.Name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Description">Description</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="Description" name="Description" value="@Model.Product.Description">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Price"> Price</label>
+                                                        <div class="col-md-9">
+                                                            <input type="number" id="Price" name="Price" class="form-control" value="@Model.Product.Price">
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="CategoryId"> Category</label>
+                                                        <div class="col-md-9">
+                                                            <select id="CategoryId" name="CategoryId" class="form-control">
+                                                                <optgroup>
+                                                                    <option value="@Model.Product.CategoryId">@Model.Product.Category.Name</option>
+                                                                </optgroup>
+                                                                @foreach (var category in Model.CategoryList)
+                                                                {
+                                                                    <option value="@category.Id">@category.Name</option>
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+
+                                                        <label class="col-md-3 col-form-label" for="DiscountId"> Discount</label>
+                                                        <div class="col-md-9">
+                                                            <select id="DiscountId" name="DiscountId" class="form-control">
+                                                                <option value="@Model.Product.DiscountId">@Model.Product.Discount.DiscountRate %</option>
+                                                                <optgroup>
+                                                                    @foreach (var discount in Model.DiscountList)
+                                                                    {
+                                                                        <option value="@discount.Id">@discount.DiscountRate %</option>
+                                                                    }
+                                                                </optgroup>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Status"> Status </label>
+                                                        <div class="col-md-9">
+                                                            <input data-val="true" id="Status" name="Status" type="checkbox" value="true" checked="@Model.Product.Status">
+                                                        </div>
+                                                    </div>
+                                                    <input type="hidden" name="Id" id="Id" value="@Model.Product.Id" />
+                                                    <p class="text-warning">@ViewBag.Mesaj</p>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+                                        <ul class="list-inline wizard mb-0">
+                                            <li class="previous list-inline-item">
+                                                <button type="submit" class="btn btn-success">Edit Product</button>
+                                            </li>
+                                        </ul>
+                                    </div> <!-- tab-content -->
+                                </div> <!-- end #basicwizard-->
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+

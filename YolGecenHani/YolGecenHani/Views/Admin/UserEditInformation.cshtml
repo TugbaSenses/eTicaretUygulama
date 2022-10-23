@@ -1,0 +1,112 @@
+﻿@model YolGecenHani.Models.AdminModel.UserRoleBadgeModel
+    @{
+        ViewBag.Title = "UserEditInformation";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+        string UserImage = String.IsNullOrEmpty(Model.User.Image) ? "default-user.jpg" : Model.User.Image;
+    }
+
+    <div class="content-page">
+        <div class="content">
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <h4 class="header-title" style="float:left"> Edit User Information</h4>
+                                    
+                                        <a href="~/Admin/UserProfile" class="btn btn-success waves-effect waves-light" style="float:right!important"><i class="fa fa-chevron-left"></i> Back To Profile</a>
+                                    </div>
+                                </div>
+                               
+                                <img src="~/Content/Admin/assets/images/users/@UserImage" class="rounded-circle img-thumbnail mb-3" width="200" />
+                                <form method="post" enctype="multipart/form-data">
+                                    <div id="basicwizard">
+                                        <div class="tab-content b-0 mb-0 pt-0">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Image">Image</label>
+                                                            <div class="col-md-9">
+                                                                <input type="file" class="form-control" id="Image"  name="Image">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="userName">Username</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control" id="userName" value="@Model.User.UserName" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Email">Email</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control" id="Email" value="@Model.User.Email" disabled>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Phone"> Phone</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" id="Phone" name="Phone" class="form-control" value="@Model.User.Phone">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Name"> Name</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" id="Name" name="Name" class="form-control" value="@Model.User.Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Surname"> Surname</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" id="Surname" name="Surname" class="form-control" value="@Model.User.Surname">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="BirthDay"> Birth Day </label>
+                                                            <div class="col-md-9">
+                                                                <input type="date" id="BirthDay" name="BirthDay" class="form-control" value="@(Model.User.BirthDay.ToString("yyyy-MM-dd"))">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Gender"> Gender</label>
+                                                            <div class="col-md-9">
+                                                                <select id="Gender" name="Gender" class="form-control">
+                                                                    <optgroup>
+                                                                        <option>
+                                                                            @Model.User.Gender
+                                                                        </option>
+                                                                    </optgroup>
+                                                                    <option>Male</option>
+                                                                    <option>Female</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- end col -->
+                                                </div> <!-- end row -->
+                                            </div>
+                                            <ul class="list-inline wizard mb-0">
+                                                <li class="previous list-inline-item">
+                                                    <button type="submit" class="btn btn-success">Save Information</button>
+                                                </li>
+                                            </ul>
+                                        </div> <!-- tab-content -->
+                                    </div> <!-- end #basicwizard-->
+                                </form>
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card-->
+                    </div> <!-- end col -->
+                </div>
+              
+
+            </div> <!-- container -->
+        </div> <!-- content -->
+    </div>
+
+    <!-- Plugins js-->

@@ -1,0 +1,97 @@
+﻿@model YolGecenHani.Models.HomeModel.Cart
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="page-title">
+    <div class="container">
+        <h1>Cart</h1>
+        <ol class="breadcrumb">
+            <li class=""><a href="~/">Home &nbsp;&nbsp;</a></li>
+            <li class=""><a href="~/Home/Shop">Shop &nbsp;&nbsp;</a></li>
+            <li class="" aria-current="page">Cart</li>
+        </ol>
+    </div>
+</section>
+<section id="content">
+    <div class="content-wrap">
+        <div class="container">
+            <table class="table cart mb-5">
+                <thead>
+                    <tr>
+                        <th class="cart-product-remove">&nbsp;</th>
+                        <th class="cart-product-thumbnail">&nbsp;</th>
+                        <th class="cart-product-name">Product</th>
+                        <th class="cart-product-price">Unit Price</th>
+                        <th class="cart-product-quantity">Quantity</th>
+                        <th class="cart-product-subtotal">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.CartLines)
+                    {
+                        <tr class="cart_item">
+                            <td class="cart-product-remove">
+                                <form method="post" action="~/Cart/RemoveFromCart">
+                                    <input type="hidden" id="id" name="id" value="@product.Product.Id" />
+                                    <button type="submit" class="btn btn-sm remove"><i class="icon-trash2"></i></button>
+                                </form>
+                               
+                            </td>
+                            <td class="cart-product-thumbnail">
+                                <a href="#"><img height="64px" src="~/Content/Admin/assets/images/product/@product.Product.Image" alt="Pink Printed Dress"></a>
+                            </td>
+                            <td class="cart-product-name">
+                                <a href="#">@product.Product.Name</a>
+                            </td>
+                            <td class="cart-product-price">
+                                <span class="amount">@product.Product.Price.ToString("c")</span>
+                            </td>
+                            <td class="cart-product-quantity">
+                                <div class="quantity">
+                                    <a href="~/Cart/ProductMinus/@product.Product.Id" class="minus1">-</a>
+                                    <input type="text" name="quantity" value="@product.Quantity" class="qty" disabled />
+                                    <a href="~/Cart/ProductPlus/@product.Product.Id" class="plus1">+</a>
+                                </div>
+                            </td>
+                            <td class="cart-product-subtotal">
+                                <span class="amount">@((product.Product.Price * product.Quantity).ToString("c"))</span>
+                            </td>
+                        </tr>
+                    }
+                    <tr class="cart_item">
+                        <td colspan="6">
+                            <div class="row justify-content-between py-2 col-mb-30">
+                                <div class="col-lg-auto ps-lg-0">
+                                    <div class="row pe-lg-5">
+                                        <h3 class="m-4">Total Price</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-auto pe-lg-0">
+                                    <h2 class="m-4 text-primary">@Model.TotalPrice().ToString("c")</h2>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="cart_item">
+                        <td colspan="6">
+                            <div class="row justify-content-between py-2 col-mb-30">
+                                <div class="col-lg-auto ps-lg-0">
+                                    <div class="row">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-auto pe-lg-0">
+                                    <a href="~/Cart/ClearCart" class="button button-3d m-0" style="background-color:red">Clear Cart</a>
+                                    <a href="~/Cart/Checkout" class="button button-3d mt-2 mt-sm-0 me-0">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+

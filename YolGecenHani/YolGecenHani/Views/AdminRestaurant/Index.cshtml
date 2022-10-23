@@ -1,0 +1,117 @@
+﻿@model YolGecenHani.Models.AdminModel.RestaurantCityModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string restaurantImage = "",restaurantLogo = "";
+
+    if (Model.Restaurant != null)
+    {
+        restaurantImage = String.IsNullOrEmpty(Model.Restaurant.Image) ? "default-restaurant.jpg" : Model.Restaurant.Image;
+        restaurantLogo = String.IsNullOrEmpty(Model.Restaurant.Logo) ? "default-logo.png" : Model.Restaurant.Logo;
+    }
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @if (Model.Restaurant != null)
+                            {
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <h4 class="header-title" style="float:left"> @Model.Restaurant.Name</h4>
+
+                                    </div>
+                                </div>
+                                <img src="~/Content/Admin/assets/images/restaurant/@restaurantImage" class="rounded-square img-thumbnail mb-3" style="height:200px" />
+                                <img src="~/Content/Admin/assets/images/restaurant/@restaurantLogo" class="rounded-square img-thumbnail mb-3" style="height:200px" />
+
+                                <form method="post" enctype="multipart/form-data">
+                                    <div id="basicwizard">
+                                        <div class="tab-content b-0 mb-0 pt-0">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-12">
+
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Image">Restaurant Image</label>
+                                                            <div class="col-md-9">
+                                                                <input type="file" id="Image" name="Image" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Logo">Restaurant Logo</label>
+                                                            <div class="col-md-9">
+                                                                <input type="file" id="Logo" name="Logo" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Name"> Restaurant Name</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" id="Name" name="Name" class="form-control" value="@Model.Restaurant.Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Description"> Description</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" id="Description" name="Description" class="form-control" value="@Model.Restaurant.Description">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="CityId"> City</label>
+                                                            <div class="col-md-9">
+                                                                <select class="form-control" name="CityId" id="CityId">
+                                                                    <optgroup>
+                                                                        <option value="@Model.Restaurant.CityId">@Model.Restaurant.City.Name</option>
+                                                                    </optgroup>
+                                                                   @foreach(var city in Model.CityList)
+                                                                   {
+                                                                       <option value="@city.Id">@city.Name</option>
+                                                                   }
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <label class="col-md-3 col-form-label" for="Status"> Status </label>
+                                                            <div class="col-md-9">
+                                                                <input data-val="true" id="Status" name="Status" type="checkbox" value="true" checked="@Model.Restaurant.Status">
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-warning">@ViewBag.Mesaj</p>
+                                                    </div> <!-- end col -->
+                                                </div> <!-- end row -->
+                                            </div>
+                                            <ul class="list-inline wizard mb-0">
+                                                <li class="previous list-inline-item">
+                                                    <button type="submit" class="btn btn-success">Save Restaurant</button>
+                                                </li>
+                                            </ul>
+                                        </div> <!-- tab-content -->
+                                    </div> <!-- end #basicwizard-->
+                                </form>
+                            }
+                            else
+                            {
+                                <div class="row mt-3 mb-3">
+                                    <div class="col-12 text-center">
+                                        <a href="~/Admin/Restaurant/Create" class="btn btn-primary">Create Your Restaurant</a>
+                                    </div>
+                                </div>
+                            }
+
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+

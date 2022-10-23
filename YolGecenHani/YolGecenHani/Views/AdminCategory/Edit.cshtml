@@ -1,0 +1,78 @@
+﻿@model YolGecenHani.Models.Category
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string categoryImage = String.IsNullOrEmpty(Model.Image) ? "default-catogry.png" : Model.Image;
+}
+
+<div class="content-page">
+    <div class="content">
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 class="header-title" style="float:left"> @Model.Name</h4>
+
+                                    <a href="~/Admin/Category" class="btn btn-success waves-effect waves-light" style="float:right!important"><i class="fa fa-chevron-left"></i> Back To List</a>
+                                </div>
+                            </div>
+                            <img src="~/Content/Admin/assets/images/category/@categoryImage" class="rounded-circle img-thumbnail mb-3" width="200" />
+
+                            <form method="post" enctype="multipart/form-data">
+                                <div id="basicwizard">
+                                    <div class="tab-content b-0 mb-0 pt-0">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Image">Category Image</label>
+                                                        <div class="col-md-9">
+                                                            <input type="file" id="Image" name="Image" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Name"> Category Name</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Description"> Description</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" id="Description" name="Description" class="form-control" value="@Model.Description">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-md-3 col-form-label" for="Status"> Status </label>
+                                                        <div class="col-md-9">
+                                                            <input data-val="true" id="Status" name="Status" type="checkbox" value="true" checked="@Model.Status">
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-warning">@ViewBag.Mesaj</p>
+                                                </div> <!-- end col -->
+                                            </div> <!-- end row -->
+                                        </div>
+                                        <ul class="list-inline wizard mb-0">
+                                            <li class="previous list-inline-item">
+                                                <button type="submit" class="btn btn-success">Edit Category</button>
+                                            </li>
+                                        </ul>
+                                    </div> <!-- tab-content -->
+                                </div> <!-- end #basicwizard-->
+                            </form>
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
+            </div>
+
+
+        </div> <!-- container -->
+    </div> <!-- content -->
+</div>
+
